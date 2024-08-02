@@ -1,28 +1,28 @@
-import { FilterValuesType } from "../App";
+import {FilterValuesType} from "../App";
 
 export const filtrReducer = (
-  state: FilterValuesType,
-  action: FilterReducerType,
+    state: FilterValuesType,
+    action: FilterReducerType,
 ): FilterValuesType => {
-  switch (action.type) {
-    case "CHANGE-FILTER":
-      return action.payload.filter;
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case "CHANGE-FILTER":
+            return action.payload.filter;
+        default:
+            return state;
+    }
 };
 
 type FilterReducerType = SetFilterActionType;
 
 type SetFilterActionType = {
-  type: "CHANGE-FILTER";
-  payload: {
-    filter: FilterValuesType;
-  };
+    type: "CHANGE-FILTER";
+    payload: {
+        filter: FilterValuesType;
+    };
 };
 
 export const changeFilterAC = (
-  filter: FilterValuesType,
+    filter: FilterValuesType,
 ): SetFilterActionType => {
-  return { type: "CHANGE-FILTER", payload: { filter } } as const;
+    return {type: "CHANGE-FILTER", payload: {filter}} as const;
 };
